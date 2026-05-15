@@ -239,4 +239,37 @@ public class Student {
     - 注意：类中不手动编写构造器时，Java会自动生成一个默认无参构造器；一旦手动定义了有参构造器，Java不再自动生成无参构造器，建议手动补写无参构造器，避免报错
    
 22. **封装的设计规范：合理隐藏、合理暴露**
-    
+    - 面向对象的三大特征：封装、继承、多态
+    - 合理隐藏，合理暴露：隐藏类内部敏感数据，只对外提供安全的访问方式
+    - 成员访问权限控制（代码层面）
+public（公开）：成员对外完全公开，可任意访问
+private（私有/隐藏）：成员仅类内部可访问，外部无法直接访问，用于隐藏数据
+
+23. **JavaBean（实体类）**
+   - 实体类是一种特殊形式的类，用于封装数据，有 2 个强制规范：
+类中所有成员变量必须私有（private），并对外提供对应的getXxx()、setXxx()方法
+类中必须包含公共的无参构造器
+   - 应用：只负责数据存取，不处理业务逻辑，实现数据层与业务层分离
+   - 补充：get和set方法、有参无参数构造函数都可以右键在generater中快速找到
+ ```java
+ public class Student {
+    private String name;
+    private double score;
+    // 无参构造器
+    public Student(){}
+    // get/set方法
+    public String getName(){return name;}
+    public void setName(String name){this.name=name;}
+    public double getScore(){return score;}
+    public void setScore(double score){this.score=score;}
+}
+```
+ ```java
+ public class StudentOperator {
+    private Student s;
+    public StudentOperator(Student s){
+        this.s = s;
+    }
+    // 业务方法：打印成绩是否及格、成绩等级等
+}
+```     
