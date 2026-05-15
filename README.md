@@ -190,3 +190,10 @@ public class ArrayInvert {
     }
 }
 ```
+17. **代码技巧**
+    - 基础类型（int、double、boolean）、普通局部变量可放循环内；new 出来的引用对象（Scanner、Random、集合、流、连接）一律循环外只 new 一次，避免频繁创建浪费内存
+    - 数组 / 集合遍历，永远用 arr.length / list.size()，不写死 5、10 这种硬编码数字
+    - 变量先定义再使用，就近定义，不要把所有变量都堆在方法最上面
+    - 命名严格：小驼峰；方法名「动词 + 名词」reverseArray、printArray；见名知意，不用 a、b、c 无意义命名
+    - 尽量用 int[] a 标准写法，不写老式 int a[]
+    - 
